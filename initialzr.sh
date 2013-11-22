@@ -23,9 +23,12 @@ if [[ ! -e $1 ]]; then
 	cp -a c4/. /Applications/XAMPP/htdocs/$1
 	rm -rf /Applications/XAMPP/htdocs/$1/c4
 
+	# Git fetch & checkout - Mobile responsive branch
+	git fetch && git checkout $3
+
 	# Start up SASS
 	cd /Applications/XAMPP/htdocs/$1/theme/styles/
-	# sudo sass --watch sass:. --no-cache --style compressed
+	sudo sass --watch sass:. --no-cache --style compressed
 
 elif [[ ! -d $1 ]]; then
 
